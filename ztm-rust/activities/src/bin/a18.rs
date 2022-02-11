@@ -18,22 +18,22 @@ struct Customer {
 
 // * Use a function to determine if a customer can make a restricted purchase
 // * Return a result from the function
-fn verify_age(age: i32) -> Result<String, String> {
-    if age >= 21 {
-        Ok("Thanks for your purchase.".to_owned())
+fn verify_purchase(customer: &Customer) -> Result<(), String> {
+    if customer.age < 21 {
+        Err("Customer below age".to_owned())
     } else {
-        // * The Err variant should detail the reason why they cannot make a purchase
-        Err("You age is less than 21".to_owned())
+        Ok(())
     }
 }
 
 fn main() {
-    let adult_age = Customer { age: 10 };
 
-    let res = verify_age(adult_age.age);
+    let new_costumer = Customer {
+        age: 20
+    };
+    let test = verify_purchase(&new_costumer);
 
-    match res {
-        Ok(ans) => println!("{:?}", ans),
-        Err(e) => println!("{:?}", e)
-    }
+    println!("{:?}", test)
+    // The return value when using results can be printed out directly from the the assign variable.
+
 }
