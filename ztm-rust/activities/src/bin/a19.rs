@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 // Topic: HashMap
 //
 // Requirements:
@@ -13,4 +14,13 @@
 // Notes:
 // * Use a HashMap for the furniture store stock
 
-fn main() {}
+fn main() {
+    let inventory = HashMap::from([("chairs", 5), ("beds", 3), ("tables", 2), ("couches", 0)]);
+
+    for (item, count) in inventory {
+        match count {
+            0 => println!("Out of stock!"),
+            _ => println!("Item:{:?}, Count: {:?}", item, count),
+        }
+    }
+}
