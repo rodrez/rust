@@ -15,12 +15,21 @@ use std::collections::HashMap;
 // * Use a HashMap for the furniture store stock
 
 fn main() {
-    let inventory = HashMap::from([("chairs", 5), ("beds", 3), ("tables", 2), ("couches", 0)]);
+    let mut inventory: HashMap<&str, i32> = HashMap::new();
 
-    for (item, count) in inventory {
-        match count {
-            0 => println!("Out of stock!"),
-            _ => println!("Item:{:?}, Count: {:?}", item, count),
-        }
+    inventory.insert("Chairs", 5);
+    inventory.insert("Beds", 3);
+    inventory.insert("Tables", 2);
+    inventory.insert("Couches", 0);
+
+    for (key, value) in inventory.iter() {
+        println!("{:?} {:?}", key, value);
     }
+
+    let mut total = 0;
+    for value in inventory.values() {
+        total += value;
+    }
+
+    println!("{:?}", total);
 }

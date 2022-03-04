@@ -23,4 +23,30 @@
 // * The program should be case-insensitive (the user should be able to type
 //   Reboot, reboot, REBOOT, etc.)
 
-fn main() {}
+enum States {
+    Off,
+    Sleep,
+    Reboot,
+    Shutdown,
+    Hibernate,
+}
+
+fn print_state(state: &States) {
+    match state {
+        States::Off => println!("turning off"),
+        States::Sleep => println!("going to sleep"),
+        States::Reboot => println!("rebooting"),
+        States::Shutdown => println!("shutting down"),
+        States::Hibernate => println!("hibernating"),
+        _ => println!("wrong selection"),
+    }
+}
+
+fn main() {
+    let input = String::from("reboot").to_lowercase();
+
+    match input {
+        "reboot" => |
+
+    }
+}
