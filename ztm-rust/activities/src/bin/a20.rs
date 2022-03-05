@@ -31,22 +31,10 @@ enum States {
     Hibernate,
 }
 
-fn print_state(state: &States) {
-    match state {
-        States::Off => println!("turning off"),
-        States::Sleep => println!("going to sleep"),
-        States::Reboot => println!("rebooting"),
-        States::Shutdown => println!("shutting down"),
-        States::Hibernate => println!("hibernating"),
-        _ => println!("wrong selection"),
-    }
+fn print_msg(state: &States){
+    
 }
 
 fn main() {
-    let input = String::from("reboot").to_lowercase();
-
-    match input {
-        "reboot" => |
-
-    }
+    
 }
